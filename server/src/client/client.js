@@ -1,4 +1,6 @@
-// import React from 'react'
-// import ReactDom from 'react-dom'
+import React from 'react'
+import ReactDom from 'react-dom'
+import Home from './components/Home'
 
-console.log('hello!')
+
+ReactDom.hydrate(<Home />, document.getElementById('root'))
