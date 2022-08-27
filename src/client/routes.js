@@ -1,6 +1,6 @@
 import React from 'react'
 import Home from './components/Home'
-import UsersList from './components/UsersList'
+import UsersList, { loadData } from './components/UsersList'
 
 const routes = [
   {
@@ -9,8 +9,9 @@ const routes = [
     exact: true
   },
   {
-    path: 'users',
+    path: '/users',
     component: UsersList,
+    loadData
   }
 ]
 

@@ -9,7 +9,7 @@ const UsersList = () => {
   useEffect(() => {
     dispatch(fetchUsers())
   }, [])
-  console.log(users, 'users')
+
   const renderUsers = () => {
     return users.map(user => {
       return <li key={user.id}>{user.name}</li>
@@ -27,3 +27,7 @@ const UsersList = () => {
 }
 
 export default UsersList
+
+export const loadData = async (store) => {
+  return store.dispatch(fetchUsers())
+}
