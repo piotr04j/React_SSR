@@ -1,11 +1,12 @@
 import React from 'react'
-import App from './App'
+import * as App from './App'
 import * as Home from './pages/HomePage'
 import * as UsersList  from './pages/UsersListPage'
 
 const routes = [
   {
-    component: App,
+    component: App.default,
+    loadData: App.loadData,
     routes: [
       {
         path: '/',

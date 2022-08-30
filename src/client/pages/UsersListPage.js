@@ -28,6 +28,6 @@ const UsersListPage = () => {
 
 export default UsersListPage
 
-export const loadData = async (store) => {
+export const loadData = (store) => {
   return store.dispatch(fetchUsers())
 }

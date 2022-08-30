@@ -9,7 +9,7 @@ import routes from './client/routes'
 
 const app = express()
 
-app.use('/api', proxy('https://react-ssr-api.herokuapp.com', {
+app.use('/api', proxy('http://react-ssr-api.herokuapp.com', {
   proxyReqOptDecorator(opts) {
     opts.headers['x-forwarded-host'] = 'localhost:3000'
     return opts
