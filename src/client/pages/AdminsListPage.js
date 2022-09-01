@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import { fetchAdmins } from '../actions'
 import { useSelector } from 'react-redux'
+import RequireAuth from '../components/HOCs/RequireAuth'
 
-const AdminsListPage = () => {
+const AdminsListPage = (props) => {
   const adminsList = useSelector(state => state.admins)
+  console.log(props)
   useEffect(() => {
     fetchAdmins()
   }, [])
@@ -22,7 +24,8 @@ const AdminsListPage = () => {
   )
 }
 
-export default AdminsListPage
+
+export default RequireAuth(AdminsListPage)
 
 export const loadData = (store) => {
   return store.dispatch(fetchAdmins())

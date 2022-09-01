@@ -23,13 +23,18 @@ app.get('*', (req, res) => {
     return route.loadData && route.loadData(store)
   })
 
-  Promise.all(loadDataPromises).then(() => {
+  Promise.allSettled(loadDataPromises).then(() => {
     const context = {}
     const content = renderer(req, store, context)
+
+    if(context.url) {
+      return res.redirect(301, context.url)
+    }
 
     if(context.notFound) {
       res.status(404)
     }
+
     res.send(content)
   })
 })
