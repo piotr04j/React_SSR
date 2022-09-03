@@ -5,6 +5,7 @@ import routes from '../client/routes'
 import { renderRoutes } from 'react-router-config'
 import { Provider } from 'react-redux'
 import serialize from 'serialize-javascript'
+import { Helmet } from 'react-helmet'
 
 const renderer = (req, store, context) => {
   const content = renderToString(
@@ -15,10 +16,13 @@ const renderer = (req, store, context) => {
     </Provider>
   )
 
+  const helmet = Helmet.renderStatic()
+
   return `
     <html lang="en">
         <head>
-          <title>React SSR</title>
+          ${helmet.title.toString()}
+          ${helmet.meta.toString()}
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         </head>
         <body>
